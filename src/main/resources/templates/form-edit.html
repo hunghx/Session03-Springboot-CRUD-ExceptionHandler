@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/do-edit" method="post" enctype="multipart/form-data" th:object="${edit}">
+    <table border="5" cellpadding="10" cellspacing="10">
+        <tr>
+            <th>ID</th>
+<!--            th: field : id , name , value-->
+            <td><input type="text" th:field="*{productId}" readonly></td>
+        </tr>
+        <tr>
+            <th>ProductName</th>
+            <td><input type="text" th:field="*{productName}"></td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td><input type="number" th:field="*{price}" ></td>
+        </tr>
+        <tr>
+            <th>Stock</th>
+            <td><input type="number" th:field="*{stock}"></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><textarea  cols="30" rows="10" th:field="*{description}"></textarea></td>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <img th:src="${edit.imageUrl}" th:alt="${edit.productName}" width="100" height="100" style="object-fit: cover"/>
+            <br/>
+            <td><input type="file" name="file"></td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td><select th:field="*{status}">
+                <option value="true">Active</option>
+                <option value="false">InActive</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="ADD"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

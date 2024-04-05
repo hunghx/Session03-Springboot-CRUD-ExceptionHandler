@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Day la trang chu</h1>
+<h2>Danh sach san pham</h2>
+<a href="/add-new-product">Add new Product</a>
+<table border="5" cellpadding="10" cellspacing="10">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Product Image</th>
+        <th>Status</th>
+        <th>Created Date</th>
+        <th colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pro,loop : ${productList}">
+        <td th:text="${loop.count}">1</td>
+        <td th:text="${pro.productName}">Sp1</td>
+        <td th:text="${#numbers.formatDecimal(pro.price, 0, 'COMMA', 2, 'POINT')} + ' $'">100$</td>
+        <td th:text="${pro.stock}">10</td>
+        <td><img th:src="${pro.imageUrl}" th:alt="${pro.productName}" width="200" height="200" style="object-fit: cover"></td>
+        <td th:text="${pro.status?'Active':'InActive'}">Active</td>
+        <td th:text="${#dates.format(pro.createdDate,'dd/MM/yyyy')}">10/10/2023</td>
+        <td><a href="" >Edit</a></td>
+        <td><a th:href="|/delete?id=${pro.productId}|" onclick="return confirm('Ban co chac chan muon xoa khong?')">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

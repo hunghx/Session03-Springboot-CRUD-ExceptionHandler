@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/do-add" method="post" enctype="multipart/form-data">
+    <table border="5" cellpadding="10" cellspacing="10">
+        <tr>
+            <th>ProductName</th>
+            <td><input type="text" name="productName"></td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td><input type="number" name="price" ></td>
+        </tr>
+        <tr>
+            <th>Stock</th>
+            <td><input type="number" name="stock"></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><textarea name="description" cols="30" rows="10"></textarea></td>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <td><input type="file" name="file"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="ADD"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
